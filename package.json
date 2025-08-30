@@ -1,0 +1,63 @@
+{
+  "name": "ios-nostalgia-web",
+  "version": "0.0.0-beta.1",
+  "description": "Nostalgic iOS-inspired UI components for the web (custom element + core API).",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./slide-to-unlock/element.js": "./dist/slide-to-unlock/element.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsup src/index.ts src/slide-to-unlock/element.ts --format esm,cjs --dts",
+    "prepublishOnly": "npm run build",
+    "dev": "vite dev demo",
+    "preview": "vite preview demo",
+    "demo:build": "vite build demo",
+    "demo:build:ci": "vite build demo --base=/ios-nostalgia-web/ --outDir=dist --emptyOutDir",
+    "pack:check": "npm pack --dry-run"
+  },
+  "keywords": [
+    "ios",
+    "nostalgia",
+    "slide-to-unlock",
+    "skeuomorphic",
+    "web-component",
+    "ui"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marcgeeklaberge/ios-nostalgia-web.git"
+  },
+  "bugs": {
+    "url": "https://github.com/marcgeeklaberge/ios-nostalgia-web/issues"
+  },
+  "homepage": "https://github.com/marcgeeklaberge/ios-nostalgia-web#readme",
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+  "node": ">=20.19.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.24",
+    "@types/react-dom": "^18.3.7",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "tsup": "^8.5.0",
+    "typescript": "^5.9.2",
+    "vite": "^7.1.3"
+  }
+}
